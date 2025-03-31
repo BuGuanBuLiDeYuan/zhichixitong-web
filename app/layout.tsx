@@ -22,6 +22,17 @@ export const metadata: Metadata = {
     keywords: '支持系统, 个人成长, 自我提升, 人生突破, 成长网络',
     authors: [{ name: '支持系统团队' }],
     category: '个人成长',
+    metadataBase: new URL('https://zhichixitong.com'),
+    manifest: '/manifest.json',
+    icons: {
+        icon: [
+            { url: '/favicon.ico', sizes: 'any' },
+            { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+        ],
+        apple: [
+            { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+        ],
+    },
     openGraph: {
         title: '支持系统 - 个人成长理论与实践',
         description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
@@ -58,6 +69,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://zhichixitong.com',
     },
+    verification: {
+        google: 'your-google-site-verification',
+    },
 }
 
 export default function RootLayout({
@@ -71,6 +85,9 @@ export default function RootLayout({
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/apple-icon.png" />
                 <meta name="theme-color" content="#2c3e50" />
+                <meta name="format-detection" content="telephone=no" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="default" />
             </head>
             <body className={inter.className}>
                 <ThemeProvider>
