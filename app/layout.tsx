@@ -53,7 +53,8 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: '支持系统 - 个人成长理论与实践',
         description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
-        images: ['/images/twitter-image.jpg'],
+        images: ['https://zhichixitong.support/images/twitter-card.png'],
+        creator: '@zhichixitong',
     },
     robots: {
         index: true,
