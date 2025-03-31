@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getChapterById, getAllChapters } from '../../../lib/chapters';
+import { Suspense } from 'react';
+import ChapterContent from '@/components/ChapterContent';
 
 // 生成静态参数
 export async function generateStaticParams() {
@@ -13,22 +15,20 @@ export async function generateStaticParams() {
 
 // 动态元数据
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    const chapter = getChapterById(params.id);
+    // 移除前导零以获取实际的章节ID
+    const actualId = params.id.replace(/^0+/, '');
+    const chapter = getChapterById(actualId);
 
     if (!chapter) {
         return {
             title: '章节未找到 - 支持系统',
+            description: '抱歉，您请求的章节不存在。'
         };
     }
 
     return {
         title: `${chapter.title} - 支持系统`,
-        description: chapter.excerpt,
-        openGraph: {
-            title: `${chapter.title} - 支持系统`,
-            description: chapter.excerpt,
-            type: 'article',
-        },
+        description: chapter.excerpt
     };
 }
 
@@ -39,45 +39,13 @@ interface ChapterPageProps {
 }
 
 export default function ChapterPage({ params }: ChapterPageProps) {
-    const chapter = getChapterById(params.id);
+    // 移除前导零以获取实际的章节ID
+    const actualId = params.id.replace(/^0+/, '');
+    const chapter = getChapterById(actualId);
 
     if (!chapter) {
         notFound();
     }
-
-    // 将内容文本转换为HTML段落
-    const contentHtml = chapter.content
-        .split('\n\n')
-        .map((paragraph, index) => {
-            // 处理标题
-            if (paragraph.startsWith('# ')) {
-                return (
-                    <h1 key={index} className="chapter-heading-1">
-                        {paragraph.substring(2)}
-                    </h1>
-                );
-            } else if (paragraph.startsWith('## ')) {
-                return (
-                    <h2 key={index} className="chapter-heading-2">
-                        {paragraph.substring(3)}
-                    </h2>
-                );
-            } else if (paragraph.startsWith('### ')) {
-                return (
-                    <h3 key={index} className="chapter-heading-3">
-                        {paragraph.substring(4)}
-                    </h3>
-                );
-            } else if (paragraph.trim() === '') {
-                return null;
-            } else {
-                return (
-                    <p key={index} className="chapter-paragraph">
-                        {paragraph}
-                    </p>
-                );
-            }
-        });
 
     return (
         <div className="page-container">
@@ -102,9 +70,8 @@ export default function ChapterPage({ params }: ChapterPageProps) {
                                 </svg>
                                 返回全部文章
                             </Link>
-
                             <div className="chapter-info">
-                                <span className="chapter-id">{chapter.id}</span>
+                                <span className="chapter-id">#{chapter.id.padStart(3, '0')}</span>
                                 <span className="read-time">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +87,7 @@ export default function ChapterPage({ params }: ChapterPageProps) {
                                             d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                                         />
                                     </svg>
-                                    <span>{chapter.readTime} 分钟阅读</span>
+                                    {chapter.readTime} 分钟阅读
                                 </span>
                             </div>
                         </div>
@@ -136,7 +103,9 @@ export default function ChapterPage({ params }: ChapterPageProps) {
                         </div>
                     </div>
 
-                    <div className="chapter-content">{contentHtml}</div>
+                    <Suspense fallback={<div>正在加载文章内容...</div>}>
+                        <ChapterContent content={chapter.content} />
+                    </Suspense>
 
                     <div className="chapter-footer">
                         <div className="chapter-navigation">

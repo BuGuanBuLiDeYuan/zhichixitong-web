@@ -20,6 +20,9 @@ export default function ChapterCard({ id, title, excerpt, readTime, tags }: Chap
         console.log(`Tag clicked: ${tag}`);
     }, []);
 
+    // 确保章节ID始终是3位数
+    const formattedId = id.padStart(3, '0');
+
     return (
         <motion.div
             whileHover={{ y: -5 }}
@@ -29,7 +32,7 @@ export default function ChapterCard({ id, title, excerpt, readTime, tags }: Chap
             <div className="chapter-card-content">
                 <div className="chapter-meta">
                     <span className="chapter-id">
-                        {id}
+                        {formattedId}
                     </span>
                     <span className="read-time">
                         <ClockIcon className="icon-small" />
@@ -37,7 +40,7 @@ export default function ChapterCard({ id, title, excerpt, readTime, tags }: Chap
                     </span>
                 </div>
 
-                <Link href={`/chapter/${id}`} className="chapter-title-link">
+                <Link href={`/chapter/${formattedId}`} className="chapter-title-link">
                     <h3 className="chapter-title">
                         {title}
                     </h3>
