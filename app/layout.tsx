@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     keywords: '支持系统, 个人成长, 自我提升, 人生突破, 成长网络',
     authors: [{ name: '支持系统团队' }],
     category: '个人成长',
-    metadataBase: new URL('https://zhichixitong.com'),
+    metadataBase: new URL('https://zhichixitong.support'),
     manifest: '/manifest.json',
     icons: {
         icon: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: '支持系统 - 个人成长理论与实践',
         description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
-        url: 'https://zhichixitong.com',
+        url: 'https://zhichixitong.support',
         siteName: '支持系统',
         images: [
             {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         },
     },
     alternates: {
-        canonical: 'https://zhichixitong.com',
+        canonical: 'https://zhichixitong.support',
     },
     verification: {
         google: 'your-google-site-verification',

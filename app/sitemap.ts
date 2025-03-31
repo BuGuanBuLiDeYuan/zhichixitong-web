@@ -4,7 +4,7 @@ import { getAllChapters, getAllTags } from '../lib/chapters'
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://zhichixitong.com'
+    const baseUrl = 'https://zhichixitong.support'
 
     // 主要页面
     const mainPages = [

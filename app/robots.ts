@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
                 '/private/',  // 禁止抓取私有内容
             ],
         },
-        sitemap: 'https://zhichixitong.com/sitemap.xml',
-        host: 'https://zhichixitong.com',
+        sitemap: 'https://zhichixitong.support/sitemap.xml',
+        host: 'https://zhichixitong.support',
     }
 } 

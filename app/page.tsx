@@ -48,10 +48,10 @@ export default function Home() {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         'name': '支持系统',
-        'url': 'https://zhichixitong.com',
+        'url': 'https://zhichixitong.support',
         'potentialAction': {
             '@type': 'SearchAction',
-            'target': 'https://zhichixitong.com/search?q={search_term_string}',
+            'target': 'https://zhichixitong.support/search?q={search_term_string}',
             'query-input': 'required name=search_term_string'
         },
         'description': '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
@@ -60,7 +60,7 @@ export default function Home() {
             'name': '支持系统团队',
             'logo': {
                 '@type': 'ImageObject',
-                'url': 'https://zhichixitong.com/logo.png'
+                'url': 'https://zhichixitong.support/logo.png'
             }
         },
         'mainEntity': {

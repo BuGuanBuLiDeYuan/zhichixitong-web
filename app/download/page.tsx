@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     description: '免费下载支持系统理论的电子版，包括PDF打印版、EPUB微信读书版等多种格式，随时随地学习成长，获取200篇完整文章。',
     keywords: '支持系统电子书, PDF下载, EPUB电子书, 免费电子书, 个人成长, 微信读书导入, 支持系统理论',
     alternates: {
-        canonical: 'https://zhichixitong.com/download',
+        canonical: 'https://zhichixitong.support/download',
     },
     openGraph: {
         title: '免费下载支持系统理论电子书 - PDF与EPUB格式',
         description: '获取支持系统理论完整电子书，提供多种格式选择，包含200篇系统性文章，帮助你构建个人成长网络。',
-        url: 'https://zhichixitong.com/download',
+        url: 'https://zhichixitong.support/download',
         type: 'website',
         images: [
             {
@@ -84,7 +84,7 @@ export default function DownloadPage() {
             'name': '支持系统团队',
             'logo': {
                 '@type': 'ImageObject',
-                'url': 'https://zhichixitong.com/logo.png'
+                'url': 'https://zhichixitong.support/logo.png'
             }
         },
         'offers': downloadOptions.map(option => ({
@@ -94,7 +94,7 @@ export default function DownloadPage() {
             'price': '0',
             'priceCurrency': 'USD',
             'availability': 'https://schema.org/InStock',
-            'url': `https://zhichixitong.com/downloads/${option.fileName}`
+            'url': `https://zhichixitong.support/downloads/${option.fileName}`
         }))
     };
 
