@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+public/
+**/*.json
+**/*.md
+**/download/page.tsx
+**/search/page.tsx
+**/tag/*/page.tsx
+**/tags/page.tsx
+**/not-found.tsx 

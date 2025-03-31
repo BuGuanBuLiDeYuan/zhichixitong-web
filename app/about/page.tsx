@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: '关于 - 支持系统',

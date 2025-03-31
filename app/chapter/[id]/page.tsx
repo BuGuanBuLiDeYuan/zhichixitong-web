@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getChapterById, getAllChapters } from '../../../lib/chapters';
-import { ClockIcon, ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '@heroicons/react/24/outline';
 
 // 生成静态参数
 export async function generateStaticParams() {

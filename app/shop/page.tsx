@@ -80,7 +80,7 @@ export default function ShopPage() {
                         <p className="section-intro">选择最适合您的价格方案，所有套餐均含精美包装和快递配送</p>
 
                         <div className="pricing-grid">
-                            {pricingOptions.map((option, index) => (
+                            {pricingOptions.map((option) => (
                                 <div
                                     key={option.title}
                                     className={`pricing-card ${option.recommended ? 'recommended-card' : ''}`}

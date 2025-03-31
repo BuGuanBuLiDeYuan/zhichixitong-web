@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { getRandomChapters, getAllChapters } from '../lib/chapters';
+import { getAllChapters } from '../lib/chapters';
 import ChapterCard from '../components/ui/ChapterCard';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -21,18 +21,6 @@ export default function Home() {
     const featuredChapters = allChapters.slice(0, 3);
     // 获取总章节数
     const totalChapters = allChapters.length;
-
-    // 钱包地址
-    const walletAddresses = {
-        evm: '0x1234567890AbCdEf1234567890AbCdEf12345678',
-        sol: 'So1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRs'
-    };
-
-    // 复制地址到剪贴板
-    const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text);
-        alert("地址已复制到剪贴板");
-    };
 
     // 预先计算星星位置，避免服务器和客户端渲染不一致
     const starPositions = useMemo(() => {
