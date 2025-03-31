@@ -203,7 +203,7 @@ export default function Home() {
                                     <div className="wallet-qr">
                                         <div className="qr-placeholder">
                                             <div className="qr-image">
-                                                <Image src="/images/sol-qr.jpg" alt="SOL QR Code" width={150} height={150} />
+                                                <Image src="/images/sol-qr.JPG" alt="SOL QR Code" width={150} height={150} />
                                             </div>
                                         </div>
                                     </div>
