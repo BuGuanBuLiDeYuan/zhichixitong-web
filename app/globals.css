@@ -148,6 +148,10 @@ html.dark .header {
     color: var(--accent-color);
 }
 
+html.dark .nav-link {
+    color: #f3f4f6;
+}
+
 .theme-toggle-desktop {
     display: none;
 }
@@ -168,19 +172,33 @@ html.dark .header {
 }
 
 .theme-button:hover {
-    background-color: #f3f4f6;
+    background-color: rgba(156, 163, 175, 0.1);
+}
+
+html.dark .theme-button {
+    color: #e5e7eb;
+}
+
+html.dark .theme-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 移动菜单 */
 .mobile-menu-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
 }
 
 .mobile-backdrop {
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -516,6 +534,8 @@ html.dark .hero-section {
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0.6;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
 }
 
 .tech-circle-1 {
@@ -525,6 +545,8 @@ html.dark .hero-section {
     right: -50px;
     border-width: 2px;
     animation: rotate-clockwise 30s linear infinite;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
 }
 
 .tech-circle-2 {
@@ -534,6 +556,8 @@ html.dark .hero-section {
     left: -100px;
     border-width: 3px;
     animation: rotate-counter-clockwise 45s linear infinite;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
 }
 
 .tech-circle-3 {
@@ -544,6 +568,8 @@ html.dark .hero-section {
     transform: translate(-50%, -50%);
     border-width: 1px;
     animation: pulse 15s ease-in-out infinite;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
 }
 
 @keyframes rotate-clockwise {
@@ -1424,6 +1450,7 @@ html.dark .nav-button:hover {
 .logo {
     display: inline-flex;
     align-items: center;
+    color: #1f2937;
 }
 
 .logo-svg {
@@ -1434,8 +1461,13 @@ html.dark .nav-button:hover {
     transform: scale(1.05);
 }
 
-html.dark .logo-svg text {
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+html.dark .logo {
+    color: #f3f4f6;
+}
+
+.logo-text,
+.logo-subtext {
+    color: inherit;
 }
 
 /* 关于页面样式 */

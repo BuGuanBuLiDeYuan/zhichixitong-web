@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { getAllChapters } from '../lib/chapters';
+import { type Chapter, getAllChapters } from '@/lib/chapters';
 import ChapterCard from '../components/ui/ChapterCard';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -10,17 +10,17 @@ import { useMemo, useState, useEffect } from 'react';
 export default function Home() {
     // 使用useState和useEffect确保客户端渲染一致性
     const [isClient, setIsClient] = useState(false);
+    const [chapters, setChapters] = useState<Chapter[]>([]);
+    const [totalChapters, setTotalChapters] = useState<number>(0);
 
-    // 在客户端加载完成后设置isClient为true
+    // 在客户端加载完成后设置isClient为true并加载章节数据
     useEffect(() => {
+        const allChapters = getAllChapters();
+        const featuredChapters = allChapters.slice(0, 3);
+        setChapters(featuredChapters);
+        setTotalChapters(allChapters.length);
         setIsClient(true);
     }, []);
-
-    // 获取章节 - 使用固定的前3篇文章，而不是随机章节，避免水合错误
-    const allChapters = getAllChapters();
-    const featuredChapters = allChapters.slice(0, 3);
-    // 获取总章节数
-    const totalChapters = allChapters.length;
 
     // 预先计算星星位置，避免服务器和客户端渲染不一致
     const starPositions = useMemo(() => {
@@ -112,7 +112,6 @@ export default function Home() {
                                 <Link href="/chapters" className="primary-button">开始阅读</Link>
                                 <Link href="/download" className="secondary-button">下载电子版</Link>
                                 <Link href="/shop" className="secondary-button">购买纸质版</Link>
-
                             </div>
                         </div>
                         <div className="hero-tech-circles">
@@ -158,13 +157,15 @@ export default function Home() {
                     <div className="container">
                         <div className="section-header">
                             <h2 className="heading-lg">今日推荐</h2>
-                            <Link href="/chapters" className="view-all-link">
-                                查看全部 {totalChapters} 篇文章 →
-                            </Link>
+                            {isClient && (
+                                <Link href="/chapters" className="view-all-link">
+                                    查看全部 {totalChapters} 篇文章 →
+                                </Link>
+                            )}
                         </div>
 
                         <div className="chapters-grid">
-                            {featuredChapters.map((chapter) => (
+                            {chapters.map((chapter) => (
                                 <ChapterCard
                                     key={chapter.id}
                                     id={chapter.id}
@@ -217,11 +218,9 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
-
             </div>
         </>
     );
