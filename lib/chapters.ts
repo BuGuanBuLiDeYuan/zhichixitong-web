@@ -40,87 +40,66 @@ const defaultChapters: Chapter[] = [
     }
 ];
 
-// 导入实际数据
-let chaptersData: Chapter[] = [];
-let tagsData: Record<string, string[]> = {};
+// 同步加载数据
+let chaptersData: Chapter[] = defaultChapters;
+let tagsData: Record<string, string[]> = {
+    "理论": ["1"],
+    "入门": ["1"],
+    "方法论": ["2"],
+    "分析": ["2"],
+    "实践": ["3"],
+    "策略": ["3"]
+};
 
-try {
-    // 尝试导入章节数据
-    import('../public/data/chapters.json')
-        .then(module => {
-            chaptersData = module.default as Chapter[];
-        })
-        .catch(error => {
-            console.error('Failed to load chapters.json:', error);
-            chaptersData = defaultChapters;
-        });
+// 加载实际数据
+if (typeof window === 'undefined') {
+    // 服务器端执行
+    try {
+        // 使用require同步加载，而不是异步import
+        const loadedChaptersData = require('../public/data/chapters.json');
+        const loadedTagsData = require('../public/data/tags.json');
 
-    // 尝试导入标签数据
-    import('../public/data/tags.json')
-        .then(module => {
-            tagsData = module.default as Record<string, string[]>;
-        })
-        .catch(error => {
-            console.error('Failed to load tags.json:', error);
-            // 为默认章节生成标签数据
-            tagsData = {
-                "理论": ["1"],
-                "入门": ["1"],
-                "方法论": ["2"],
-                "分析": ["2"],
-                "实践": ["3"],
-                "策略": ["3"]
-            };
-        });
-} catch (error) {
-    console.error('Failed to import data files:', error);
-    chaptersData = defaultChapters;
-    tagsData = {
-        "理论": ["1"],
-        "入门": ["1"],
-        "方法论": ["2"],
-        "分析": ["2"],
-        "实践": ["3"],
-        "策略": ["3"]
-    };
+        if (loadedChaptersData && Array.isArray(loadedChaptersData)) {
+            chaptersData = loadedChaptersData;
+        }
+
+        if (loadedTagsData && typeof loadedTagsData === 'object') {
+            tagsData = loadedTagsData;
+        }
+    } catch (error) {
+        console.error('Failed to load data files in server environment:', error);
+        // 使用默认数据，已在上面设置
+    }
+} else {
+    // 客户端执行
+    // 客户端使用的是预加载的数据，不需要额外处理
 }
 
 // 获取所有章节
 export function getAllChapters(): Chapter[] {
-    return chaptersData.length > 0 ? chaptersData : defaultChapters;
+    return chaptersData;
 }
 
 // 获取特定章节的数据
 export function getChapterById(id: string): Chapter | null {
-    return chaptersData.find(chapter => chapter.id === id) || defaultChapters.find(chapter => chapter.id === id) || null;
+    return chaptersData.find(chapter => chapter.id === id) || null;
 }
 
 // 获取所有标签和对应的章节ID
 export function getAllTags(): Record<string, string[]> {
-    return Object.keys(tagsData).length > 0 ? tagsData : {
-        "理论": ["1"],
-        "入门": ["1"],
-        "方法论": ["2"],
-        "分析": ["2"],
-        "实践": ["3"],
-        "策略": ["3"]
-    };
+    return tagsData;
 }
 
 // 获取随机章节（不重复）
 export function getRandomChapters(count: number = 3): Chapter[] {
-    const availableChapters = chaptersData.length > 0 ? chaptersData : defaultChapters;
-    const shuffled = [...availableChapters].sort(() => 0.5 - Math.random());
+    const shuffled = [...chaptersData].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
 }
 
 // 根据标签获取章节
 export function getChaptersByTag(tag: string): Chapter[] {
     const chapterIds = tagsData[tag] || [];
-    return chaptersData.filter(chapter => chapterIds.includes(chapter.id)) ||
-        defaultChapters.filter(chapter => {
-            return chapter.tags.includes(tag);
-        });
+    return chaptersData.filter(chapter => chapterIds.includes(chapter.id));
 }
 
 // 搜索章节
@@ -130,9 +109,7 @@ export function searchChapters(query: string): Chapter[] {
     }
 
     const normalizedQuery = query.toLowerCase().trim();
-    const availableChapters = chaptersData.length > 0 ? chaptersData : defaultChapters;
-
-    return availableChapters.filter(chapter =>
+    return chaptersData.filter(chapter =>
         chapter.title.toLowerCase().includes(normalizedQuery) ||
         chapter.content.toLowerCase().includes(normalizedQuery)
     );

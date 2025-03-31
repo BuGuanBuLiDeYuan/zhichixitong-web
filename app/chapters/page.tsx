@@ -1,8 +1,43 @@
-import { getAllChapters } from '@/lib/chapters';
+'use client';
+
+import { getAllChapters, type Chapter } from '@/lib/chapters';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function ChaptersPage() {
-    const chapters = getAllChapters();
+    // 使用客户端状态
+    const [chapters, setChapters] = useState<Chapter[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // 在客户端加载数据
+    useEffect(() => {
+        try {
+            const allChapters = getAllChapters();
+            setChapters(allChapters);
+        } catch (error) {
+            console.error('Error loading chapters:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
+
+    // 显示加载状态
+    if (isLoading) {
+        return (
+            <div className="page-container">
+                <section className="chapters-section">
+                    <div className="container">
+                        <div className="section-header">
+                            <h1 className="heading-xl">全部文章</h1>
+                            <p className="section-description">
+                                正在加载文章内容...
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        );
+    }
 
     return (
         <div className="page-container">
