@@ -20,7 +20,7 @@ export default function ChapterCard({ id, title, excerpt, readTime, tags }: Chap
         console.log(`Tag clicked: ${tag}`);
     }, []);
 
-    // 确保章节ID始终是3位数
+    // 确保章节ID始终是3位数（仅用于显示）
     const formattedId = id.padStart(3, '0');
 
     return (
@@ -40,7 +40,7 @@ export default function ChapterCard({ id, title, excerpt, readTime, tags }: Chap
                     </span>
                 </div>
 
-                <Link href={`/chapter/${formattedId}`} className="chapter-title-link">
+                <Link href={`/chapter/${id}`} className="chapter-title-link">
                     <h3 className="chapter-title">
                         {title}
                     </h3>

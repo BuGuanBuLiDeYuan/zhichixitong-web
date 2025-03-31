@@ -15,9 +15,7 @@ export async function generateStaticParams() {
 
 // 动态元数据
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    // 移除前导零以获取实际的章节ID
-    const actualId = params.id.replace(/^0+/, '');
-    const chapter = getChapterById(actualId);
+    const chapter = getChapterById(params.id);
 
     if (!chapter) {
         return {
@@ -39,9 +37,7 @@ interface ChapterPageProps {
 }
 
 export default function ChapterPage({ params }: ChapterPageProps) {
-    // 移除前导零以获取实际的章节ID
-    const actualId = params.id.replace(/^0+/, '');
-    const chapter = getChapterById(actualId);
+    const chapter = getChapterById(params.id);
 
     if (!chapter) {
         notFound();
@@ -71,7 +67,7 @@ export default function ChapterPage({ params }: ChapterPageProps) {
                                 返回全部文章
                             </Link>
                             <div className="chapter-info">
-                                <span className="chapter-id">#{chapter.id.padStart(3, '0')}</span>
+                                <span className="chapter-id">#{chapter.id}</span>
                                 <span className="read-time">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
