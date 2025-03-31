@@ -5,9 +5,17 @@ import { getRandomChapters, getAllChapters } from '../lib/chapters';
 import ChapterCard from '../components/ui/ChapterCard';
 import Script from 'next/script';
 import Image from 'next/image';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 export default function Home() {
+    // 使用useState和useEffect确保客户端渲染一致性
+    const [isClient, setIsClient] = useState(false);
+
+    // 在客户端加载完成后设置isClient为true
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     // 获取章节 - 使用固定的前3篇文章，而不是随机章节，避免水合错误
     const allChapters = getAllChapters();
     const featuredChapters = allChapters.slice(0, 3);
@@ -17,7 +25,7 @@ export default function Home() {
     // 钱包地址
     const walletAddresses = {
         evm: '0x1234567890AbCdEf1234567890AbCdEf12345678',
-        sol: 'So1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRs'
+        sol: 'So1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRso1aRs'
     };
 
     // 复制地址到剪贴板
@@ -101,10 +109,10 @@ export default function Home() {
                         </svg>
                     </div>
                     <div className="hero-constellation">
-                        {starPositions.map((style, i) => (
+                        {isClient && starPositions.map((style, i) => (
                             <div key={i} className="star" style={style}></div>
                         ))}
-                        {linePositions.map((style, i) => (
+                        {isClient && linePositions.map((style, i) => (
                             <div key={i + 'line'} className="connection-line" style={style}></div>
                         ))}
                     </div>

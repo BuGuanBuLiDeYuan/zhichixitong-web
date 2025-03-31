@@ -1,10 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [],
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
     theme: {
         extend: {},
     },
-    plugins: [],
-    corePlugins: [], // 停用所有核心插件
-    important: false, // 禁用!important
+    plugins: [
+        require('@tailwindcss/typography')
+    ],
 } 
