@@ -6,14 +6,12 @@
     --accent-color: #e74c3c;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 32, 32, 32;
-        --background-end-rgb: 20, 20, 20;
-        --primary-color: #3498db;
-        --accent-color: #e74c3c;
-    }
+html.dark {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 32, 32, 32;
+    --background-end-rgb: 20, 20, 20;
+    --primary-color: #3498db;
+    --accent-color: #e74c3c;
 }
 
 body {
@@ -74,10 +72,8 @@ a {
     z-index: 10;
 }
 
-@media (prefers-color-scheme: dark) {
-    .header {
-        background-color: #111827;
-    }
+html.dark .header {
+    background-color: #111827;
 }
 
 .nav-container {
@@ -152,12 +148,6 @@ a {
     color: var(--accent-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    .nav-link {
-        color: #f3f4f6;
-    }
-}
-
 .theme-toggle-desktop {
     display: none;
 }
@@ -179,16 +169,6 @@ a {
 
 .theme-button:hover {
     background-color: #f3f4f6;
-}
-
-@media (prefers-color-scheme: dark) {
-    .theme-button {
-        color: #9ca3af;
-    }
-
-    .theme-button:hover {
-        background-color: #1f2937;
-    }
 }
 
 /* 移动菜单 */
@@ -216,10 +196,8 @@ a {
     padding: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .mobile-menu-container {
-        background-color: #111827;
-    }
+html.dark .mobile-menu-container {
+    background-color: #111827;
 }
 
 .mobile-menu-header {
@@ -242,10 +220,8 @@ a {
     color: #4b5563;
 }
 
-@media (prefers-color-scheme: dark) {
-    .close-button {
-        color: #d1d5db;
-    }
+html.dark .close-button {
+    color: #d1d5db;
 }
 
 .mobile-menu-content {
@@ -277,14 +253,8 @@ a {
     background-color: #f3f4f6;
 }
 
-@media (prefers-color-scheme: dark) {
-    .mobile-nav-link {
-        color: #f3f4f6;
-    }
-
-    .mobile-nav-link:hover {
-        background-color: #1f2937;
-    }
+html.dark .mobile-nav-link {
+    color: #f3f4f6;
 }
 
 .mobile-nav-footer {
@@ -312,14 +282,8 @@ a {
     background-color: #f3f4f6;
 }
 
-@media (prefers-color-scheme: dark) {
-    .mobile-theme-toggle {
-        color: #f3f4f6;
-    }
-
-    .mobile-theme-toggle:hover {
-        background-color: #1f2937;
-    }
+html.dark .mobile-theme-toggle {
+    color: #f3f4f6;
 }
 
 /* 页脚样式 */
@@ -328,11 +292,9 @@ a {
     border-top: 1px solid #e5e7eb;
 }
 
-@media (prefers-color-scheme: dark) {
-    .footer {
-        background-color: #111827;
-        border-color: #1f2937;
-    }
+html.dark .footer {
+    background-color: #111827;
+    border-color: #1f2937;
 }
 
 .footer-container {
@@ -368,10 +330,8 @@ a {
     color: #4b5563;
 }
 
-@media (prefers-color-scheme: dark) {
-    .site-description {
-        color: #9ca3af;
-    }
+html.dark .site-description {
+    color: #9ca3af;
 }
 
 .footer-heading {
@@ -382,10 +342,8 @@ a {
     color: #1f2937;
 }
 
-@media (prefers-color-scheme: dark) {
-    .footer-heading {
-        color: #f3f4f6;
-    }
+html.dark .footer-heading {
+    color: #f3f4f6;
 }
 
 .footer-links {
@@ -406,10 +364,8 @@ a {
     color: var(--accent-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    .footer-link {
-        color: #9ca3af;
-    }
+html.dark .footer-link {
+    color: #9ca3af;
 }
 
 .footer-copyright {
@@ -419,20 +375,16 @@ a {
     text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    .footer-copyright {
-        border-color: #1f2937;
-    }
+html.dark .footer-copyright {
+    border-color: #1f2937;
 }
 
 .copyright-text {
     color: #6b7280;
 }
 
-@media (prefers-color-scheme: dark) {
-    .copyright-text {
-        color: #9ca3af;
-    }
+html.dark .copyright-text {
+    color: #9ca3af;
 }
 
 /* 主页样式 */
@@ -454,10 +406,8 @@ a {
     min-height: 60vh;
 }
 
-@media (prefers-color-scheme: dark) {
-    .hero-section {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    }
+html.dark .hero-section {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 .hero-svg-background {
@@ -750,18 +700,16 @@ a {
     margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .hero-section {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    }
+html.dark .hero-section {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
 
-    .intro-section {
-        background-color: #111827;
-    }
+html.dark .intro-section {
+    background-color: #111827;
+}
 
-    .intro-text {
-        color: #d1d5db;
-    }
+html.dark .intro-text {
+    color: #d1d5db;
 }
 
 /* 介绍区域 */
@@ -790,10 +738,8 @@ a {
     color: var(--primary-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    .section-title {
-        color: white;
-    }
+html.dark .section-title {
+    color: white;
 }
 
 .feature-grid {
@@ -825,10 +771,8 @@ a {
     text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    .feature-card {
-        background-color: #1f2937;
-    }
+html.dark .feature-card {
+    background-color: #1f2937;
 }
 
 .feature-icon {
@@ -850,20 +794,16 @@ a {
     color: #1f2937;
 }
 
-@media (prefers-color-scheme: dark) {
-    .feature-title {
-        color: white;
-    }
+html.dark .feature-title {
+    color: white;
 }
 
 .feature-description {
     color: #4b5563;
 }
 
-@media (prefers-color-scheme: dark) {
-    .feature-description {
-        color: #9ca3af;
-    }
+html.dark .feature-description {
+    color: #9ca3af;
 }
 
 /* 推荐区域 */
@@ -912,10 +852,8 @@ a {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-card {
-        background-color: #1f2937;
-    }
+html.dark .chapter-card {
+    background-color: #1f2937;
 }
 
 .chapter-card-image {
@@ -938,10 +876,8 @@ a {
     color: #1f2937;
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-title {
-        color: white;
-    }
+html.dark .chapter-title {
+    color: white;
 }
 
 .chapter-excerpt {
@@ -950,10 +886,8 @@ a {
     flex-grow: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-excerpt {
-        color: #9ca3af;
-    }
+html.dark .chapter-excerpt {
+    color: #9ca3af;
 }
 
 .chapter-meta {
@@ -970,10 +904,8 @@ a {
     font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .read-time {
-        color: #9ca3af;
-    }
+html.dark .read-time {
+    color: #9ca3af;
 }
 
 .read-time-icon {
@@ -1006,11 +938,9 @@ a {
     color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-tag {
-        background-color: #374151;
-        color: #d1d5db;
-    }
+html.dark .chapter-tag {
+    background-color: #374151;
+    color: #d1d5db;
 }
 
 .more-tag {
@@ -1024,10 +954,8 @@ a {
     background-color: #f9fafb;
 }
 
-@media (prefers-color-scheme: dark) {
-    .shop-section {
-        background-color: #111827;
-    }
+html.dark .shop-section {
+    background-color: #111827;
 }
 
 .shop-container {
@@ -1068,10 +996,8 @@ a {
     color: #1f2937;
 }
 
-@media (prefers-color-scheme: dark) {
-    .shop-title {
-        color: white;
-    }
+html.dark .shop-title {
+    color: white;
 }
 
 .shop-description {
@@ -1079,10 +1005,8 @@ a {
     color: #4b5563;
 }
 
-@media (prefers-color-scheme: dark) {
-    .shop-description {
-        color: #9ca3af;
-    }
+html.dark .shop-description {
+    color: #9ca3af;
 }
 
 .feature-list {
@@ -1098,10 +1022,8 @@ a {
     color: #1f2937;
 }
 
-@media (prefers-color-scheme: dark) {
-    .feature-item {
-        color: #f3f4f6;
-    }
+html.dark .feature-item {
+    color: #f3f4f6;
 }
 
 .check-icon {
@@ -1126,10 +1048,8 @@ a {
     margin-left: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .original-price {
-        color: #9ca3af;
-    }
+html.dark .original-price {
+    color: #9ca3af;
 }
 
 /* 章节页面样式 */
@@ -1285,58 +1205,56 @@ a {
     color: var(--gray-500);
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-card {
-        background-color: var(--gray-800);
-    }
+html.dark .chapter-card {
+    background-color: var(--gray-800);
+}
 
-    .chapter-title {
-        color: var(--white);
-    }
+html.dark .chapter-title {
+    color: var(--white);
+}
 
-    .chapter-excerpt {
-        color: var(--gray-300);
-    }
+html.dark .chapter-excerpt {
+    color: var(--gray-300);
+}
 
-    .chapter-id {
-        background-color: var(--primary-900);
-        color: var(--primary-100);
-    }
+html.dark .chapter-id {
+    background-color: var(--primary-900);
+    color: var(--primary-100);
+}
 
-    .read-time {
-        color: var(--gray-400);
-    }
+html.dark .read-time {
+    color: var(--gray-400);
+}
 
-    .tag {
-        background-color: var(--gray-700);
-        color: var(--gray-200);
-    }
+html.dark .tag {
+    background-color: var(--gray-700);
+    color: var(--gray-200);
+}
 
-    .tag:hover {
-        background-color: var(--primary-900);
-        color: var(--primary-200);
-    }
+html.dark .tag:hover {
+    background-color: var(--primary-900);
+    color: var(--primary-200);
+}
 
-    .tag-more {
-        background-color: var(--gray-700);
-        color: var(--gray-400);
-    }
+html.dark .tag-more {
+    background-color: var(--gray-700);
+    color: var(--gray-400);
+}
 
-    .search-filter-bar {
-        border-bottom-color: var(--gray-700);
-    }
+html.dark .search-filter-bar {
+    border-bottom-color: var(--gray-700);
+}
 
-    .chapters-count {
-        color: var(--gray-400);
-    }
+html.dark .chapters-count {
+    color: var(--gray-400);
+}
 
-    .chapters-count span {
-        color: var(--primary-400);
-    }
+html.dark .chapters-count span {
+    color: var(--primary-400);
+}
 
-    .section-description {
-        color: var(--gray-300);
-    }
+html.dark .section-description {
+    color: var(--gray-300);
 }
 
 /* 章节详情页样式 */
@@ -1466,42 +1384,40 @@ a {
     height: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .chapter-article .chapter-title {
-        color: var(--white);
-    }
+html.dark .chapter-article .chapter-title {
+    color: var(--white);
+}
 
-    .chapter-content {
-        color: var(--gray-300);
-    }
+html.dark .chapter-content {
+    color: var(--gray-300);
+}
 
-    .chapter-heading-1,
-    .chapter-heading-2,
-    .chapter-heading-3 {
-        color: var(--white);
-    }
+html.dark .chapter-heading-1,
+html.dark .chapter-heading-2,
+html.dark .chapter-heading-3 {
+    color: var(--white);
+}
 
-    .back-link {
-        color: var(--gray-400);
-    }
+html.dark .back-link {
+    color: var(--gray-400);
+}
 
-    .back-link:hover {
-        color: var(--primary-400);
-    }
+html.dark .back-link:hover {
+    color: var(--primary-400);
+}
 
-    .chapter-footer {
-        border-top-color: var(--gray-700);
-    }
+html.dark .chapter-footer {
+    border-top-color: var(--gray-700);
+}
 
-    .nav-button {
-        background-color: var(--gray-800);
-        color: var(--gray-200);
-    }
+html.dark .nav-button {
+    background-color: var(--gray-800);
+    color: var(--gray-200);
+}
 
-    .nav-button:hover {
-        background-color: var(--primary-900);
-        color: var(--primary-200);
-    }
+html.dark .nav-button:hover {
+    background-color: var(--primary-900);
+    color: var(--primary-200);
 }
 
 /* Logo 样式 */
@@ -1518,10 +1434,8 @@ a {
     transform: scale(1.05);
 }
 
-@media (prefers-color-scheme: dark) {
-    .logo-svg text {
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-    }
+html.dark .logo-svg text {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
 }
 
 /* 关于页面样式 */
@@ -1537,6 +1451,10 @@ a {
     padding: 4rem 0;
     overflow: hidden;
     margin-bottom: 3rem;
+}
+
+html.dark .about-hero {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 .hero-overlay {
@@ -1644,10 +1562,8 @@ a {
     border-radius: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-    .section-title {
-        color: white;
-    }
+html.dark .section-title {
+    color: white;
 }
 
 /* 概念部分 */
@@ -1673,14 +1589,12 @@ a {
     margin-bottom: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .concept-content {
-        background-color: #1e2734;
-    }
+html.dark .concept-content {
+    background-color: #1e2734;
+}
 
-    .concept-text {
-        color: #cbd5e0;
-    }
+html.dark .concept-text {
+    color: #cbd5e0;
 }
 
 /* 维度部分 */
@@ -1755,26 +1669,24 @@ a {
     color: #4a5568;
 }
 
-@media (prefers-color-scheme: dark) {
-    .section-intro {
-        color: #cbd5e0;
-    }
+html.dark .section-intro {
+    color: #cbd5e0;
+}
 
-    .dimension-card {
-        background-color: #1e2734;
-    }
+html.dark .dimension-card {
+    background-color: #1e2734;
+}
 
-    .dimension-number {
-        background: linear-gradient(135deg, #2d3748, #4a5568);
-    }
+html.dark .dimension-number {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+}
 
-    .dimension-title {
-        color: #e2e8f0;
-    }
+html.dark .dimension-title {
+    color: #e2e8f0;
+}
 
-    .dimension-text {
-        color: #a0aec0;
-    }
+html.dark .dimension-text {
+    color: #a0aec0;
 }
 
 /* 比较部分 */
@@ -1800,15 +1712,13 @@ a {
     margin-bottom: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .comparison-content {
-        background-color: #1e2734;
-        border-left-color: var(--accent-color);
-    }
+html.dark .comparison-content {
+    background-color: #1e2734;
+    border-left-color: var(--accent-color);
+}
 
-    .comparison-text {
-        color: #cbd5e0;
-    }
+html.dark .comparison-text {
+    color: #cbd5e0;
 }
 
 /* 作者部分 */
@@ -1865,18 +1775,16 @@ a {
     margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .author-section {
-        background-color: #1e2734;
-    }
+html.dark .author-section {
+    background-color: #1e2734;
+}
 
-    .author-image {
-        background: linear-gradient(135deg, #2d3748, #4a5568);
-    }
+html.dark .author-image {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+}
 
-    .author-text {
-        color: #cbd5e0;
-    }
+html.dark .author-text {
+    color: #cbd5e0;
 }
 
 /* 联系部分 */
@@ -1929,22 +1837,20 @@ a {
     color: var(--accent-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    .contact-card {
-        background-color: #1e2734;
-    }
+html.dark .contact-card {
+    background-color: #1e2734;
+}
 
-    .contact-title {
-        color: #e2e8f0;
-    }
+html.dark .contact-title {
+    color: #e2e8f0;
+}
 
-    .contact-text {
-        color: #a0aec0;
-    }
+html.dark .contact-text {
+    color: #a0aec0;
+}
 
-    .contact-email {
-        color: var(--accent-color);
-    }
+html.dark .contact-email {
+    color: var(--accent-color);
 }
 
 /* 标签浏览页面样式 */
@@ -2066,56 +1972,34 @@ a {
     color: #7B341E;
 }
 
-.tag-name {
-    font-size: 0.875rem;
-    font-weight: 600;
+html.dark .tag-item {
+    background-color: #2D3748;
+    color: #E2E8F0;
 }
 
-.tag-count {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    background-color: #e74c3c;
-    color: white;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 9999px;
-    margin-left: 0.5rem;
-    padding: 0 0.5rem;
+html.dark .tag-item-0 {
+    background-color: #2D3748;
+    color: #E2E8F0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .tag-item {
-        background-color: #2D3748;
-        color: #E2E8F0;
-    }
+html.dark .tag-item-1 {
+    background-color: #234E52;
+    color: #E6FFFA;
+}
 
-    .tag-item-0 {
-        background-color: #2D3748;
-        color: #E2E8F0;
-    }
+html.dark .tag-item-2 {
+    background-color: #2A4365;
+    color: #EBF4FF;
+}
 
-    .tag-item-1 {
-        background-color: #234E52;
-        color: #E6FFFA;
-    }
+html.dark .tag-item-3 {
+    background-color: #44337A;
+    color: #FAF5FF;
+}
 
-    .tag-item-2 {
-        background-color: #2A4365;
-        color: #EBF4FF;
-    }
-
-    .tag-item-3 {
-        background-color: #44337A;
-        color: #FAF5FF;
-    }
-
-    .tag-item-4 {
-        background-color: #652B19;
-        color: #FFFAF0;
-    }
+html.dark .tag-item-4 {
+    background-color: #652B19;
+    color: #FFFAF0;
 }
 
 /* 热门标签部分 */
@@ -2202,24 +2086,22 @@ a {
     border: 1px solid #e2e8f0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .popular-tag-card {
-        background-color: #1e2734;
-    }
+html.dark .popular-tag-card {
+    background-color: #1e2734;
+}
 
-    .popular-tag-title {
-        color: #e2e8f0;
-    }
+html.dark .popular-tag-title {
+    color: #e2e8f0;
+}
 
-    .popular-tag-text {
-        color: #a0aec0;
-    }
+html.dark .popular-tag-text {
+    color: #a0aec0;
+}
 
-    .popular-tag-count {
-        background-color: #2d3748;
-        color: #e2e8f0;
-        border-color: #4a5568;
-    }
+html.dark .popular-tag-count {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    border-color: #4a5568;
 }
 
 /* 标签信息部分 */
@@ -2245,15 +2127,13 @@ a {
     margin-bottom: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .tag-info-content {
-        background-color: #1e2734;
-        border-left-color: var(--accent-color);
-    }
+html.dark .tag-info-content {
+    background-color: #1e2734;
+    border-left-color: var(--accent-color);
+}
 
-    .tag-info-text {
-        color: #cbd5e0;
-    }
+html.dark .tag-info-text {
+    color: #cbd5e0;
 }
 
 /* 搜索页面样式 */
@@ -2376,15 +2256,13 @@ a {
     cursor: not-allowed;
 }
 
-@media (prefers-color-scheme: dark) {
-    .search-input {
-        background-color: #1a202c;
-        color: #e2e8f0;
-    }
+html.dark .search-input {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
 
-    .search-icon-svg {
-        color: #718096;
-    }
+html.dark .search-icon-svg {
+    color: #718096;
 }
 
 .search-content {
@@ -2446,26 +2324,24 @@ a {
     margin-bottom: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    .no-results-message {
-        background-color: #1e2734;
-    }
+html.dark .no-results-message {
+    background-color: #1e2734;
+}
 
-    .no-results-text {
-        color: #cbd5e0;
-    }
+html.dark .no-results-text {
+    color: #cbd5e0;
+}
 
-    .search-suggestions {
-        border-top-color: #4a5568;
-    }
+html.dark .search-suggestions {
+    border-top-color: #4a5568;
+}
 
-    .suggestion-title {
-        color: #e2e8f0;
-    }
+html.dark .suggestion-title {
+    color: #e2e8f0;
+}
 
-    .suggestion-list {
-        color: #a0aec0;
-    }
+html.dark .suggestion-list {
+    color: #a0aec0;
 }
 
 /* 热门搜索部分 */
@@ -2524,36 +2400,34 @@ a {
     color: #7B341E;
 }
 
-@media (prefers-color-scheme: dark) {
-    .popular-search-term {
-        background-color: #2D3748;
-        color: #E2E8F0;
-    }
+html.dark .popular-search-term {
+    background-color: #2D3748;
+    color: #E2E8F0;
+}
 
-    .term-0 {
-        background-color: #2D3748;
-        color: #E2E8F0;
-    }
+html.dark .term-0 {
+    background-color: #2D3748;
+    color: #E2E8F0;
+}
 
-    .term-1 {
-        background-color: #234E52;
-        color: #E6FFFA;
-    }
+html.dark .term-1 {
+    background-color: #234E52;
+    color: #E6FFFA;
+}
 
-    .term-2 {
-        background-color: #2A4365;
-        color: #EBF4FF;
-    }
+html.dark .term-2 {
+    background-color: #2A4365;
+    color: #EBF4FF;
+}
 
-    .term-3 {
-        background-color: #44337A;
-        color: #FAF5FF;
-    }
+html.dark .term-3 {
+    background-color: #44337A;
+    color: #FAF5FF;
+}
 
-    .term-4 {
-        background-color: #652B19;
-        color: #FFFAF0;
-    }
+html.dark .term-4 {
+    background-color: #652B19;
+    color: #FFFAF0;
 }
 
 /* 搜索技巧部分 */
@@ -2585,19 +2459,17 @@ a {
     line-height: 1.6;
 }
 
-@media (prefers-color-scheme: dark) {
-    .search-tips-content {
-        background-color: #1e2734;
-        border-left-color: var(--primary-color);
-    }
+html.dark .search-tips-content {
+    background-color: #1e2734;
+    border-left-color: var(--primary-color);
+}
 
-    .search-tips-text {
-        color: #cbd5e0;
-    }
+html.dark .search-tips-text {
+    color: #cbd5e0;
+}
 
-    .search-tips-list {
-        color: #a0aec0;
-    }
+html.dark .search-tips-list {
+    color: #a0aec0;
 }
 
 /* 购买纸质书页面样式 */
@@ -2797,26 +2669,24 @@ a {
     box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-    .pricing-card {
-        background-color: #1e2734;
-    }
+html.dark .pricing-card {
+    background-color: #1e2734;
+}
 
-    .pricing-title {
-        color: #e2e8f0;
-    }
+html.dark .pricing-title {
+    color: #e2e8f0;
+}
 
-    .currency {
-        color: #cbd5e0;
-    }
+html.dark .currency {
+    color: #cbd5e0;
+}
 
-    .pricing-original {
-        color: #a0aec0;
-    }
+html.dark .pricing-original {
+    color: #a0aec0;
+}
 
-    .pricing-header {
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
+html.dark .pricing-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 购买说明部分 */
@@ -2860,22 +2730,20 @@ a {
     color: #4a5568;
 }
 
-@media (prefers-color-scheme: dark) {
-    .purchase-info-content {
-        background-color: #1e2734;
-    }
+html.dark .purchase-info-content {
+    background-color: #1e2734;
+}
 
-    .info-item {
-        background-color: rgba(30, 39, 52, 0.7);
-    }
+html.dark .info-item {
+    background-color: rgba(30, 39, 52, 0.7);
+}
 
-    .info-title {
-        color: #e2e8f0;
-    }
+html.dark .info-title {
+    color: #e2e8f0;
+}
 
-    .info-text {
-        color: #cbd5e0;
-    }
+html.dark .info-text {
+    color: #cbd5e0;
 }
 
 /* 常见问题部分 */
@@ -2924,19 +2792,17 @@ a {
     color: #4a5568;
 }
 
-@media (prefers-color-scheme: dark) {
-    .faq-item {
-        background-color: #1e2734;
-    }
+html.dark .faq-item {
+    background-color: #1e2734;
+}
 
-    .faq-question {
-        color: #e2e8f0;
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
+html.dark .faq-question {
+    color: #e2e8f0;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
 
-    .faq-answer {
-        color: #cbd5e0;
-    }
+html.dark .faq-answer {
+    color: #cbd5e0;
 }
 
 /* 下载页面样式 */
@@ -3095,22 +2961,20 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-    .download-option-card {
-        background-color: #1e2734;
-    }
+html.dark .download-option-card {
+    background-color: #1e2734;
+}
 
-    .download-option-title {
-        color: #e2e8f0;
-    }
+html.dark .download-option-title {
+    color: #e2e8f0;
+}
 
-    .download-option-description {
-        color: #cbd5e0;
-    }
+html.dark .download-option-description {
+    color: #cbd5e0;
+}
 
-    .download-feature {
-        color: #a0aec0;
-    }
+html.dark .download-feature {
+    color: #a0aec0;
 }
 
 /* 使用指南部分 */
@@ -3176,19 +3040,17 @@ a {
     font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
-    .usage-item {
-        background-color: #1e2734;
-    }
+html.dark .usage-item {
+    background-color: #1e2734;
+}
 
-    .usage-title {
-        color: #e2e8f0;
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
+html.dark .usage-title {
+    color: #e2e8f0;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
 
-    .usage-steps li {
-        color: #cbd5e0;
-    }
+html.dark .usage-steps li {
+    color: #cbd5e0;
 }
 
 /* 版权声明部分 */
@@ -3226,23 +3088,21 @@ a {
     color: var(--accent-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    .copyright-content {
-        background-color: #1e2734;
-        border-left-color: var(--primary-color);
-    }
+html.dark .copyright-content {
+    background-color: #1e2734;
+    border-left-color: var(--primary-color);
+}
 
-    .copyright-text {
-        color: #cbd5e0;
-    }
+html.dark .copyright-text {
+    color: #cbd5e0;
+}
 
-    .copyright-link {
-        color: var(--primary-color);
-    }
+html.dark .copyright-link {
+    color: var(--primary-color);
+}
 
-    .copyright-link:hover {
-        color: var(--accent-color);
-    }
+html.dark .copyright-link:hover {
+    color: var(--accent-color);
 }
 
 /* 打赏区域样式 */
@@ -3254,6 +3114,13 @@ a {
         radial-gradient(circle at 80% 10%, rgba(192, 57, 43, 0.1) 0%, transparent 50%);
 }
 
+html.dark .donation-section {
+    background-color: #1a1a1a;
+    background-image:
+        radial-gradient(circle at 20% 90%, rgba(41, 128, 185, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(192, 57, 43, 0.2) 0%, transparent 50%);
+}
+
 .donation-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -3263,6 +3130,11 @@ a {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     position: relative;
+}
+
+html.dark .donation-container {
+    background-color: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .donation-header {
@@ -3289,6 +3161,10 @@ a {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+}
+
+html.dark .donation-subtitle {
+    color: #bbb;
 }
 
 .wallet-addresses {
@@ -3390,11 +3266,19 @@ a {
     margin-top: 0.5rem;
 }
 
+html.dark .wallet-note {
+    color: #999;
+}
+
 .donation-footer {
     text-align: center;
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid #eee;
+}
+
+html.dark .donation-footer {
+    border-color: #333;
 }
 
 .donation-thanks {
@@ -3403,54 +3287,8 @@ a {
     font-style: italic;
 }
 
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-    .donation-section {
-        background-color: #1a1a1a;
-        background-image:
-            radial-gradient(circle at 20% 90%, rgba(41, 128, 185, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 80% 10%, rgba(192, 57, 43, 0.2) 0%, transparent 50%);
-    }
-
-    .donation-container {
-        background-color: #222;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .donation-subtitle {
-        color: #bbb;
-    }
-
-    .wallet-card {
-        background-color: #2a2a2a;
-        border-color: #333;
-    }
-
-    .wallet-qr {
-        background-color: #333;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .wallet-type {
-        color: #ddd;
-    }
-
-    .address-code {
-        background-color: #333;
-        color: #ddd;
-    }
-
-    .wallet-note {
-        color: #999;
-    }
-
-    .donation-footer {
-        border-color: #333;
-    }
-
-    .donation-thanks {
-        color: #bbb;
-    }
+html.dark .donation-thanks {
+    color: #bbb;
 }
 
 /* 响应式适配 */

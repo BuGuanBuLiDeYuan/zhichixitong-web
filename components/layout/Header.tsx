@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 import Logo from '../../app/components/Logo';
+import { useTheme } from '../../app/context/ThemeContext';
 
 const navigation = [
     { name: '首页', href: '/' },
@@ -17,12 +18,7 @@ const navigation = [
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-        // 实际的暗黑模式切换逻辑将在后续实现
-    };
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <header className="header">
@@ -59,10 +55,10 @@ export default function Header() {
 
                     <div className="theme-toggle-desktop">
                         <button
-                            onClick={toggleDarkMode}
+                            onClick={toggleTheme}
                             className="theme-button"
                         >
-                            {isDarkMode ? (
+                            {theme === 'dark' ? (
                                 <SunIcon className="icon" />
                             ) : (
                                 <MoonIcon className="icon" />
@@ -112,12 +108,12 @@ export default function Header() {
                                 <div className="mobile-nav-footer">
                                     <button
                                         onClick={() => {
-                                            toggleDarkMode();
+                                            toggleTheme();
                                             setMobileMenuOpen(false);
                                         }}
                                         className="mobile-theme-toggle"
                                     >
-                                        {isDarkMode ? (
+                                        {theme === 'dark' ? (
                                             <>
                                                 <SunIcon className="icon" />
                                                 切换到亮色模式

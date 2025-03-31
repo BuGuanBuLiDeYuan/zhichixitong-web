@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 import { Metadata, Viewport } from 'next'
+import { ThemeProvider } from './context/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,11 +15,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
     title: {
-        default: '支持系统 - 个人成长理论与实践',
-        template: '%s | 支持系统'
+        template: '%s | 支持系统',
+        default: '支持系统 - 用好支持系统，加速人生起飞',
     },
-    description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
-    keywords: '支持系统, 个人成长, 人际关系, 心理健康, 思想哲学, 职业发展, 自我提升',
+    description: '探索支持系统理论，构建个人成长网络，突破人生瓶颈。',
+    keywords: '支持系统, 个人成长, 自我提升, 人生突破, 成长网络',
     authors: [{ name: '支持系统团队' }],
     category: '个人成长',
     openGraph: {
@@ -72,13 +73,15 @@ export default function RootLayout({
                 <meta name="theme-color" content="#2c3e50" />
             </head>
             <body className={inter.className}>
-                <div className="site-container">
-                    <Header />
-                    <main className="main-content">
-                        {children}
-                    </main>
-                    <Footer />
-                </div>
+                <ThemeProvider>
+                    <div className="site-container">
+                        <Header />
+                        <main className="main-content">
+                            {children}
+                        </main>
+                        <Footer />
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     )
