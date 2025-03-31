@@ -2,9 +2,15 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+}
 
 export const metadata: Metadata = {
     title: {
@@ -50,11 +56,6 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: 'https://zhichixitong.com',
-    },
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
     },
 }
 

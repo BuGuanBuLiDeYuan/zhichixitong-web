@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { searchChapters } from '../../lib/chapters';
 import ChapterCard from '../../components/ui/ChapterCard';
 
-export default function SearchPage() {
+// 客户端搜索组件
+function SearchContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const query = searchParams ? searchParams.get('q') || '' : '';
@@ -162,5 +163,23 @@ export default function SearchPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+// 搜索页面，使用Suspense包装SearchContent
+export default function SearchPage() {
+    return (
+        <Suspense fallback={
+            <div className="search-loading">
+                <div className="container">
+                    <div className="search-header">
+                        <h1 className="search-title">搜索文章</h1>
+                        <p className="search-subtitle">正在加载搜索功能...</p>
+                    </div>
+                </div>
+            </div>
+        }>
+            <SearchContent />
+        </Suspense>
     );
 }
