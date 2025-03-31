@@ -3,51 +3,77 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
     title: '购买 NFT，送《支持系统理论》打印版',
-    description: '购买支持系统理论精装纸质版，收录完整的200篇文章，大陆地区包邮，优惠多多。',
+    description: '购买支持系统理论精装纸质版，收录完整的211篇文章，大陆地区包邮，优惠多多。',
 };
 
 // 价格选项
 const pricingOptions = [
     {
-        title: '单本',
-        price: '19.99',
+        title: '电子版',
+        price: '0',
+        originalPrice: '39.99',
+        features: [
+            '随意复制粘贴',
+            '随时随地阅读',
+            'PDF 和 EPUB 格式任选',
+        ],
+        cta: <a href="/download">立即下载</a>,
+        recommended: false,
+    },
+    {
+        title: '1 本（一帆风顺）',
+        price: '29.99',
         originalPrice: '39.99',
         features: [
             '精装纸质版',
-            '收录200篇完整文章',
+            '收录211篇完整文章',
             '大陆地区包邮',
         ],
         cta: '立即购买',
         recommended: false,
     },
     {
-        title: '双本',
-        price: '29.99',
+        title: '2 本（好事成双）',
+        price: '53.99',
         originalPrice: '79.98',
         features: [
             '2本精装纸质版',
-            '收录200篇完整文章',
+            '收录211篇完整文章',
             '大陆地区包邮',
-            '精美书签',
         ],
         cta: '超值优惠',
         recommended: true,
     },
     {
-        title: '团购（10本）',
-        price: '139.99',
+        title: '10 本（十全十美）',
+        price: '199.99',
         originalPrice: '399.90',
         features: [
             '10本精装纸质版',
             '收录200篇完整文章',
             '大陆地区包邮',
             '精美书签',
-            '实践指南',
             '专属交流群',
         ],
-        cta: '批量购买',
+        cta: '团购购买',
         recommended: false,
     },
+    {
+        title: '作者签名版',
+        price: '1999',
+        originalPrice: '2999',
+        features: [
+            '精装纸质版',
+            '收录211篇完整文章',
+            '大陆地区包邮',
+            '精美书签',
+            '专属交流群',
+            '作者亲笔签名',
+            '1小时作者1v1交流',
+        ],
+        cta: '限量发售',
+        recommended: false,
+    }
 ];
 
 export default function ShopPage() {
@@ -66,7 +92,7 @@ export default function ShopPage() {
                     <div className="shop-header">
                         <h1 className="shop-title">购买纸质书</h1>
                         <p className="shop-subtitle">
-                            收藏《支持系统理论》精装纸质版，随时翻阅200篇深度好文，助你加速人生起飞
+                            收藏《支持系统理论》精装纸质版，随时翻阅211篇深度好文，助你加速人生起飞
                         </p>
                     </div>
                 </div>
@@ -147,7 +173,7 @@ export default function ShopPage() {
                             <div className="faq-item">
                                 <h3 className="faq-question">纸质书与网站内容有什么区别？</h3>
                                 <p className="faq-answer">
-                                    纸质书收录了网站上的全部200篇文章，但经过专业编辑润色和重新排版，阅读体验更佳。此外，纸质书还包含额外的实践指南和反思练习。
+                                    纸质书收录了网站上的全部200篇文章，但经过专业编辑润色和重新排版，阅读体验更佳。
                                 </p>
                             </div>
 
@@ -161,16 +187,10 @@ export default function ShopPage() {
                             <div className="faq-item">
                                 <h3 className="faq-question">海外地区如何购买？</h3>
                                 <p className="faq-answer">
-                                    海外用户请直接联系客服，我们将根据您的具体位置提供相应的运费和配送时间信息。
+                                    其实海内外的用户都可以下载电子版自己打印……本网站提供了PDF和EPUB格式。
                                 </p>
                             </div>
 
-                            <div className="faq-item">
-                                <h3 className="faq-question">是否可以开具发票？</h3>
-                                <p className="faq-answer">
-                                    可以，我们提供电子发票服务。购买后请联系客服并提供您的发票信息，我们将为您开具发票。
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

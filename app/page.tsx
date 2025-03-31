@@ -88,35 +88,38 @@ export default function Home() {
             <div className="page-container">
                 {/* 英雄区域 */}
                 <section className="hero-section">
-                    <div className="hero-svg-background">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="hero-wave">
-                            <path fill="rgba(255,255,255,0.05)" fillOpacity="1" d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,224C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="hero-wave hero-wave-2">
-                            <path fill="rgba(255,255,255,0.08)" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,144C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                        </svg>
-                    </div>
-                    <div className="hero-constellation">
-                        {isClient && starPositions.map((style, i) => (
-                            <div key={i} className="star" style={style}></div>
-                        ))}
-                        {isClient && linePositions.map((style, i) => (
-                            <div key={i + 'line'} className="connection-line" style={style}></div>
-                        ))}
-                    </div>
-                    <div className="hero-container">
-                        <h1 className="hero-title">用好支持系统，加速人生起飞</h1>
-                        <p className="hero-subtitle">探索支持系统理论，构建个人成长网络，突破人生瓶颈</p>
-                        <div className="hero-buttons">
-                            <Link href="/chapters" className="primary-button">开始阅读</Link>
-                            <Link href="/shop" className="secondary-button">购买纸质书</Link>
-                            <Link href="/download" className="secondary-button">下载电子版</Link>
+                    <div className="container">
+                        <div className="hero-svg-background">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="hero-wave">
+                                <path fill="rgba(255,255,255,0.05)" fillOpacity="1" d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,224C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="hero-wave hero-wave-2">
+                                <path fill="rgba(255,255,255,0.08)" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,144C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                            </svg>
                         </div>
-                    </div>
-                    <div className="hero-tech-circles">
-                        <div className="tech-circle tech-circle-1"></div>
-                        <div className="tech-circle tech-circle-2"></div>
-                        <div className="tech-circle tech-circle-3"></div>
+                        <div className="hero-constellation">
+                            {isClient && starPositions.map((style, i) => (
+                                <div key={i} className="star" style={style}></div>
+                            ))}
+                            {isClient && linePositions.map((style, i) => (
+                                <div key={i + 'line'} className="connection-line" style={style}></div>
+                            ))}
+                        </div>
+                        <div className="hero-container">
+                            <h1 className="hero-title">用好支持系统，加速人生起飞</h1>
+                            <p className="hero-subtitle">探索支持系统理论，构建个人成长网络，突破人生瓶颈</p>
+                            <div className="hero-buttons">
+                                <Link href="/chapters" className="primary-button">开始阅读</Link>
+                                <Link href="/download" className="secondary-button">下载电子版</Link>
+                                <Link href="/shop" className="secondary-button">购买纸质版</Link>
+
+                            </div>
+                        </div>
+                        <div className="hero-tech-circles">
+                            <div className="tech-circle tech-circle-1"></div>
+                            <div className="tech-circle tech-circle-2"></div>
+                            <div className="tech-circle tech-circle-3"></div>
+                        </div>
                     </div>
                 </section>
 

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Logo from '../../app/components/Logo';
+
 
 export default function Footer() {
     return (
@@ -6,8 +8,10 @@ export default function Footer() {
             <div className="footer-container">
                 <div className="footer-grid">
                     <div className="footer-info">
-                        <div className="logo-text">
-                            支持系统
+                        <div className="logo-container">
+                            <Link href="/" className="logo-link">
+                                <Logo />
+                            </Link>
                         </div>
                         <p className="site-description">
                             用好支持系统，加速人生起飞。探索构建个人支持系统的方法，以简单易行而超出想象的方法，帮助你实现成长与突破。
@@ -44,7 +48,7 @@ export default function Footer() {
                         <ul className="footer-links">
                             <li>
                                 <Link href="/shop" className="footer-link">
-                                    购买纸质书
+                                    购买NFT送纸质版
                                 </Link>
                             </li>
                             <li>

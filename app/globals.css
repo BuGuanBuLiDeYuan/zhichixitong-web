@@ -44,12 +44,11 @@ a {
 
 /* 容器 */
 .container {
-    width: 100%;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -3469,4 +3468,9 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+/* 确保所有区域的外边距一致 */
+section {
+    width: 100%;
 }

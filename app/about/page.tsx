@@ -187,7 +187,7 @@ export default function AboutPage() {
                                     如果您对本站内容感兴趣，希望进行商务合作，请联系：
                                 </p>
                                 <p className="contact-email">
-                                    business@zhichixitong.com
+                                    LongLongLongBTC@gmail.com
                                 </p>
                             </div>
 
@@ -197,7 +197,7 @@ export default function AboutPage() {
                                     如果您希望邀请作者进行线上或线下的支持系统主题讲座，请联系：
                                 </p>
                                 <p className="contact-email">
-                                    talks@zhichixitong.com
+                                    LongLongLongBTC@gmail.com
                                 </p>
                             </div>
 
