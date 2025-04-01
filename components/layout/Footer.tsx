@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import Logo from '../../app/components/Logo';
+import dynamic from 'next/dynamic';
 
+// 动态导入访客计数器组件，避免服务器渲染问题
+const VisitorCounter = dynamic(() => import('../VisitorCounter'), { ssr: false });
 
 export default function Footer() {
     return (
@@ -69,6 +74,7 @@ export default function Footer() {
                     <p className="copyright-text">
                         &copy; {new Date().getFullYear()} 支持系统. 保留所有权利.
                     </p>
+                    <VisitorCounter />
                 </div>
             </div>
         </footer>

@@ -3458,3 +3458,42 @@ html.dark .comments-section h2 {
     width: 100%;
     border: none;
 }
+
+/* 访客计数器样式 */
+.visitor-counter {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-text {
+    opacity: 0.8;
+}
+
+.counter-link {
+    margin: 0 0.25rem;
+    color: #4b5563;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.counter-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+html.dark .visitor-counter {
+    color: #9ca3af;
+}
+
+html.dark .counter-link {
+    color: #d1d5db;
+}
+
+html.dark .counter-link:hover {
+    color: var(--accent-color);
+}
