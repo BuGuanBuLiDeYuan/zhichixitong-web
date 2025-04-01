@@ -34,7 +34,7 @@ const Logo: React.FC<LogoProps> = ({ className = '' }) => {
 
                 {/* 支持系统文字 */}
                 <text
-                    x="8"
+                    x="5"
                     y="26"
                     fontFamily="sans-serif"
                     fontSize="28"

@@ -43,6 +43,20 @@ export default function ChapterPage({ params }: ChapterPageProps) {
         notFound();
     }
 
+    // 获取所有章节并排序
+    const allChapters = getAllChapters().sort((a, b) => {
+        const numA = parseInt(a.id);
+        const numB = parseInt(b.id);
+        return numA - numB;
+    });
+
+    // 找到当前章节的索引
+    const currentIndex = allChapters.findIndex(ch => ch.id === params.id);
+
+    // 获取上一篇和下一篇
+    const prevChapter = currentIndex > 0 ? allChapters[currentIndex - 1] : null;
+    const nextChapter = currentIndex < allChapters.length - 1 ? allChapters[currentIndex + 1] : null;
+
     return (
         <div className="page-container">
             <article className="chapter-article">
@@ -105,23 +119,50 @@ export default function ChapterPage({ params }: ChapterPageProps) {
 
                     <div className="chapter-footer">
                         <div className="chapter-navigation">
-                            <Link href="/chapters" className="nav-button">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                    className="icon-small"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                                    />
-                                </svg>
-                                全部文章
-                            </Link>
+                            {prevChapter ? (
+                                <Link href={`/chapter/${prevChapter.id}`} className="nav-button">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-5 h-5"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                                        />
+                                    </svg>
+                                    <span>上一篇：{prevChapter.title}</span>
+                                </Link>
+                            ) : (
+                                <div></div>
+                            )}
+
+
+                            {nextChapter ? (
+                                <Link href={`/chapter/${nextChapter.id}`} className="nav-button">
+                                    <span>下一篇：{nextChapter.title}</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-5 h-5"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                                        />
+                                    </svg>
+                                </Link>
+                            ) : (
+                                <div></div>
+                            )}
                         </div>
                     </div>
                 </div>
