@@ -1381,6 +1381,15 @@ html.dark .section-description {
     margin-bottom: 1.25rem;
 }
 
+.chapter-paragraph strong {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+html.dark .chapter-paragraph strong {
+    color: var(--gray-100);
+}
+
 .chapter-footer {
     margin-top: 3rem;
     padding-top: 2rem;

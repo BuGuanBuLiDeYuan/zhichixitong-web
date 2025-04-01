@@ -29,10 +29,17 @@ export default function ChapterContent({ content }: ChapterContentProps) {
             } else if (paragraph.trim() === '') {
                 return null;
             } else {
+                // 处理加粗文字
+                const boldText = paragraph.replace(
+                    /\*\*(.*?)\*\*/g,
+                    '<strong>$1</strong>'
+                );
                 return (
-                    <p key={index} className="chapter-paragraph">
-                        {paragraph}
-                    </p>
+                    <p
+                        key={index}
+                        className="chapter-paragraph"
+                        dangerouslySetInnerHTML={{ __html: boldText }}
+                    />
                 );
             }
         });
