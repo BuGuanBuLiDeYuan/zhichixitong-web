@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getChapterById, getAllChapters } from '../../../lib/chapters';
 import { Suspense } from 'react';
 import ChapterContent from '@/components/ChapterContent';
+import ChapterComments from '@/components/ChapterComments';
 
 // 生成静态参数
 export async function generateStaticParams() {
@@ -182,6 +183,8 @@ export default function ChapterPage({ params }: ChapterPageProps) {
                             </Link>
                         </div>
                     </div>
+
+                    <ChapterComments />
                 </div>
             </article>
         </div>
