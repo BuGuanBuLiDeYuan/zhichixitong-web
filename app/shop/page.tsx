@@ -29,7 +29,7 @@ const pricingOptions = [
             '收录211篇完整文章',
             '大陆地区包邮',
         ],
-        cta: '立即购买',
+        cta: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGrZITiM1DxWaC5iS8GzmKaFOocRmEIQ6H95LNOTXCbTUUIg/viewform?usp=dialog">立即购买</a>,
         recommended: false,
     },
     {
@@ -41,7 +41,7 @@ const pricingOptions = [
             '收录211篇完整文章',
             '大陆地区包邮',
         ],
-        cta: '超值优惠',
+        cta: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGrZITiM1DxWaC5iS8GzmKaFOocRmEIQ6H95LNOTXCbTUUIg/viewform?usp=dialog">立即购买</a>,
         recommended: true,
     },
     {
@@ -55,7 +55,7 @@ const pricingOptions = [
             '精美书签',
             '专属交流群',
         ],
-        cta: '团购购买',
+        cta: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGrZITiM1DxWaC5iS8GzmKaFOocRmEIQ6H95LNOTXCbTUUIg/viewform?usp=dialog">团购购买</a>,
         recommended: false,
     },
     {
@@ -71,7 +71,7 @@ const pricingOptions = [
             '作者亲笔签名',
             '1小时作者1v1交流',
         ],
-        cta: '限量发售',
+        cta: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGrZITiM1DxWaC5iS8GzmKaFOocRmEIQ6H95LNOTXCbTUUIg/viewform?usp=dialog">限量发售</a>,
         recommended: false,
     }
 ];
