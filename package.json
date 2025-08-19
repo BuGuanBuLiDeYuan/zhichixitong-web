@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "next build"
+    "postinstall": "next build",
+    "seo:audit": "node scripts/seo-audit.js",
+    "seo:analyze": "npm run build && npm run seo:audit",
+    "optimize:images": "next-optimized-images",
+    "test:lighthouse": "lighthouse https://zhichixitong.support --output=html --output-path=./lighthouse-report.html"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
