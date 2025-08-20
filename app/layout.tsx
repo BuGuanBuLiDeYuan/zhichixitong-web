@@ -5,11 +5,7 @@ import Footer from '../components/layout/Footer'
 import { Metadata, Viewport } from 'next'
 import { ThemeProvider } from './context/ThemeContext'
 import Script from 'next/script'
-import dynamic from 'next/dynamic'
-
-// 动态导入分析组件，避免构建问题
-const GoogleAnalytics = dynamic(() => import('../components/analytics/GoogleAnalytics'), { ssr: false })
-const WebVitals = dynamic(() => import('../components/performance/WebVitals'), { ssr: false })
+import ClientWrapper from '../components/ClientWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -112,8 +108,7 @@ export default function RootLayout({
                     strategy="afterInteractive"
                 />
 
-                <GoogleAnalytics />
-                <WebVitals />
+                <ClientWrapper />
             </head>
             <body className={inter.className}>
                 <ThemeProvider>
