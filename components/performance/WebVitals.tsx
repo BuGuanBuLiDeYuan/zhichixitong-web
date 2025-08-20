@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+// import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
 
 // 发送性能数据到分析服务
 function sendToAnalytics(metric: any) {
@@ -35,12 +35,18 @@ function sendToAnalytics(metric: any) {
 
 export default function WebVitals() {
     useEffect(() => {
-        // 监控 Core Web Vitals
-        getCLS(sendToAnalytics);
-        getFID(sendToAnalytics);
-        getFCP(sendToAnalytics);
-        getLCP(sendToAnalytics);
-        getTTFB(sendToAnalytics);
+        // 监控 Core Web Vitals - 动态导入避免构建错误
+        if (typeof window !== 'undefined') {
+            import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+                getCLS(sendToAnalytics);
+                getFID(sendToAnalytics);
+                getFCP(sendToAnalytics);
+                getLCP(sendToAnalytics);
+                getTTFB(sendToAnalytics);
+            }).catch(() => {
+                console.warn('Web Vitals not available');
+            });
+        }
 
         // 监控自定义性能指标
         if (typeof window !== 'undefined' && 'performance' in window) {

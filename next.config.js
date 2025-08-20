@@ -15,7 +15,6 @@ const nextConfig = {
     compress: true,
     // 启用实验性功能
     experimental: {
-        optimizeCss: true,
         optimizePackageImports: ['framer-motion', 'react-share'],
     },
     // 重定向配置

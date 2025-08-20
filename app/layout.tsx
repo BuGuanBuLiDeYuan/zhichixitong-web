@@ -5,6 +5,11 @@ import Footer from '../components/layout/Footer'
 import { Metadata, Viewport } from 'next'
 import { ThemeProvider } from './context/ThemeContext'
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
+
+// 动态导入分析组件，避免构建问题
+const GoogleAnalytics = dynamic(() => import('../components/analytics/GoogleAnalytics'), { ssr: false })
+const WebVitals = dynamic(() => import('../components/performance/WebVitals'), { ssr: false })
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -90,12 +95,25 @@ export default function RootLayout({
                 <meta name="format-detection" content="telephone=no" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+                {/* DNS预解析 */}
+                <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+                <link rel="dns-prefetch" href="//www.google-analytics.com" />
+                <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+
+                {/* 预连接重要资源 */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
                 <Script
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5987578985045497"
                     crossOrigin="anonymous"
                     strategy="afterInteractive"
                 />
+
+                <GoogleAnalytics />
+                <WebVitals />
             </head>
             <body className={inter.className}>
                 <ThemeProvider>
