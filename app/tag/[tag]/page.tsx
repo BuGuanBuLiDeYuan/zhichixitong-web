@@ -40,8 +40,8 @@ export default function TagPage({ params }: { params: { tag: string } }) {
     // 相关标签（获取所有标签，并排除当前标签）
     const allTags = getAllTags();
     const relatedTags = Object.keys(allTags)
-        .filter(t => t !== tag)
-        .sort(() => 0.5 - Math.random())
+        .filter((t) => t !== tag)
+        .sort((a, b) => (allTags[b]?.length || 0) - (allTags[a]?.length || 0))
         .slice(0, 5);
 
     return (

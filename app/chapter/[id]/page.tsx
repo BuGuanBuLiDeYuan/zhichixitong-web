@@ -5,6 +5,7 @@ import { getChapterById, getAllChapters } from '../../../lib/chapters';
 import { Suspense } from 'react';
 import ChapterContent from '@/components/ChapterContent';
 import ChapterComments from '@/components/ChapterComments';
+import Script from 'next/script';
 
 // 生成静态参数
 export async function generateStaticParams() {
@@ -21,13 +22,36 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     if (!chapter) {
         return {
             title: '章节未找到 - 支持系统',
-            description: '抱歉，您请求的章节不存在。'
+            description: '抱歉，您请求的章节不存在。',
+            robots: {
+                index: false,
+                follow: false,
+            },
         };
     }
 
+    const canonical = `https://zhichixitong.support/chapter/${chapter.id}`;
+    const description = chapter.excerpt?.slice(0, 160) || `阅读《${chapter.title}》`;
+
     return {
         title: `${chapter.title} - 支持系统`,
-        description: chapter.excerpt
+        description,
+        alternates: {
+            canonical,
+        },
+        openGraph: {
+            title: chapter.title,
+            description,
+            type: 'article',
+            url: canonical,
+            images: ['https://zhichixitong.support/images/twitter-card.png'],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: chapter.title,
+            description,
+            images: ['https://zhichixitong.support/images/twitter-card.png'],
+        },
     };
 }
 
@@ -45,7 +69,7 @@ export default function ChapterPage({ params }: ChapterPageProps) {
     }
 
     // 获取所有章节并排序
-    const allChapters = getAllChapters().sort((a, b) => {
+    const allChapters = [...getAllChapters()].sort((a, b) => {
         const numA = parseInt(a.id);
         const numB = parseInt(b.id);
         return numA - numB;
@@ -57,9 +81,36 @@ export default function ChapterPage({ params }: ChapterPageProps) {
     // 获取上一篇和下一篇
     const prevChapter = currentIndex > 0 ? allChapters[currentIndex - 1] : null;
     const nextChapter = currentIndex < allChapters.length - 1 ? allChapters[currentIndex + 1] : null;
+    const canonical = `https://zhichixitong.support/chapter/${chapter.id}`;
+
+    const articleJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: chapter.title,
+        description: chapter.excerpt,
+        author: {
+            '@type': 'Person',
+            name: '刘明',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: '支持系统',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://zhichixitong.support/icon.png',
+            },
+        },
+        mainEntityOfPage: canonical,
+        inLanguage: 'zh-CN',
+        articleSection: chapter.tags?.[0] || '支持系统',
+        keywords: chapter.tags?.join(', ') || '支持系统',
+    };
 
     return (
         <div className="page-container">
+            <Script id={`schema-data-chapter-${chapter.id}`} type="application/ld+json">
+                {JSON.stringify(articleJsonLd)}
+            </Script>
             <article className="chapter-article">
                 <div className="container">
                     <div className="chapter-header">

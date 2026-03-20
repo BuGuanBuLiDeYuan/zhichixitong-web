@@ -2,24 +2,17 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
     const baseUrl = 'https://zhichixitong.support';
+    const lastmod = new Date('2026-03-20').toISOString();
 
     const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
         <loc>${baseUrl}/sitemap.xml</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
+        <lastmod>${lastmod}</lastmod>
     </sitemap>
     <sitemap>
         <loc>${baseUrl}/sitemap-chapters.xml</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-    </sitemap>
-    <sitemap>
-        <loc>${baseUrl}/sitemap-tags.xml</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-    </sitemap>
-    <sitemap>
-        <loc>${baseUrl}/sitemap-images.xml</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
+        <lastmod>${lastmod}</lastmod>
     </sitemap>
 </sitemapindex>`;
 

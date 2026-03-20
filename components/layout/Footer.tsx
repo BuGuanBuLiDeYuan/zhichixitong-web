@@ -53,7 +53,7 @@ export default function Footer() {
                         <ul className="footer-links">
                             <li>
                                 <Link href="/shop" className="footer-link">
-                                    购买NFT送纸质版
+                                    购买纸质版
                                 </Link>
                             </li>
                             <li>

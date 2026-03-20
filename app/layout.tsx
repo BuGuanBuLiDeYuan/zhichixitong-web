@@ -12,20 +12,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const viewport: Viewport = {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
 }
 
 export const metadata: Metadata = {
     title: {
         template: '%s | 支持系统',
-        default: '支持系统 - 用好支持系统，加速人生起飞',
+        default: '支持系统理论 - 用好支持系统，加速人生起飞',
     },
-    description: '探索支持系统理论，构建个人成长网络，突破人生瓶颈。',
-    keywords: '支持系统, 个人成长, 自我提升, 人生突破, 成长网络',
-    authors: [{ name: '支持系统团队' }],
+    description: '支持系统理论学习平台，系统收录 200+ 篇成长实践文章，帮助你构建个人支持网络，实现长期成长与关键突破。',
+    keywords: ['支持系统', '支持系统理论', '个人成长', '自我提升', '人生突破', '成长方法'],
+    authors: [{ name: '刘明' }],
     category: '个人成长',
     metadataBase: new URL('https://zhichixitong.support'),
     manifest: '/manifest.json',
+    applicationName: '支持系统',
     icons: {
         icon: [
             { url: '/favicon.ico', sizes: 'any' },
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
         ],
     },
     openGraph: {
-        title: '支持系统 - 个人成长理论与实践',
-        description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
+        title: '支持系统理论 - 个人成长方法与实践',
+        description: '系统学习支持系统理论，构建可持续的个人支持网络，提升成长效率与人生韧性。',
         url: 'https://zhichixitong.support',
         siteName: '支持系统',
         images: [
             {
-                url: '/images/og-image.jpg',
+                url: 'https://zhichixitong.support/images/twitter-card.png',
                 width: 1200,
                 height: 630,
-                alt: '支持系统理论简介',
+                alt: '支持系统理论',
             }
         ],
         locale: 'zh_CN',
@@ -53,10 +53,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: '支持系统 - 个人成长理论与实践',
-        description: '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
+        title: '支持系统理论 - 个人成长方法与实践',
+        description: '系统学习支持系统理论，构建可持续的个人支持网络，提升成长效率与人生韧性。',
         images: ['https://zhichixitong.support/images/twitter-card.png'],
-        creator: '@zhichixitong',
     },
     robots: {
         index: true,
@@ -71,9 +70,6 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: 'https://zhichixitong.support',
-    },
-    verification: {
-        google: 'your-google-site-verification',
     },
 }
 
@@ -107,8 +103,6 @@ export default function RootLayout({
                     crossOrigin="anonymous"
                     strategy="afterInteractive"
                 />
-
-                <ClientWrapper />
             </head>
             <body className={inter.className}>
                 <ThemeProvider>
@@ -119,8 +113,9 @@ export default function RootLayout({
                         </main>
                         <Footer />
                     </div>
+                    <ClientWrapper />
                 </ThemeProvider>
             </body>
         </html>
     )
-} 
+}

@@ -1,92 +1,69 @@
-'use client';
-
 import Link from 'next/link';
-import { type Chapter, getAllChapters } from '@/lib/chapters';
-import ChapterCard from '../components/ui/ChapterCard';
 import Script from 'next/script';
 import Image from 'next/image';
-import { useMemo, useState, useEffect } from 'react';
+import type { Metadata } from 'next';
+import { type Chapter, getAllChapters } from '@/lib/chapters';
+import ChapterCard from '../components/ui/ChapterCard';
+import { metadata as homeMetadata } from './metadata';
+
+export const metadata: Metadata = homeMetadata;
 
 export default function Home() {
-    // 使用useState和useEffect确保客户端渲染一致性
-    const [isClient, setIsClient] = useState(false);
-    const [chapters, setChapters] = useState<Chapter[]>([]);
-    const [totalChapters, setTotalChapters] = useState<number>(0);
+    const allChapters = getAllChapters();
+    const chapters: Chapter[] = allChapters.slice(0, 3);
+    const totalChapters = allChapters.length;
 
-    // 在客户端加载完成后设置isClient为true并加载章节数据
-    useEffect(() => {
-        const allChapters = getAllChapters();
-        const featuredChapters = allChapters.slice(0, 3);
-        setChapters(featuredChapters);
-        setTotalChapters(allChapters.length);
-        setIsClient(true);
-    }, []);
-
-    // 预先计算星星位置，避免服务器和客户端渲染不一致
-    const starPositions = useMemo(() => {
-        return Array.from({ length: 50 }).map((_, i) => ({
-            left: `${(i * 7) % 100}%`,
-            top: `${(i * 11) % 100}%`,
-            animationDelay: `${(i * 0.1) % 5}s`,
-            animationDuration: `${3 + (i * 0.3) % 7}s`
-        }));
-    }, []);
-
-    // 预先计算连接线位置
-    const linePositions = useMemo(() => {
-        return Array.from({ length: 10 }).map((_, i) => ({
-            left: `${(i * 10) % 100}%`,
-            top: `${(i * 9) % 100}%`,
-            width: `${50 + (i * 15) % 150}px`,
-            transform: `rotate(${(i * 36) % 360}deg)`,
-            animationDelay: `${(i * 0.5) % 5}s`
-        }));
-    }, []);
-
-    // JSON-LD结构化数据
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        'name': '支持系统',
-        'url': 'https://zhichixitong.support',
-        'potentialAction': {
-            '@type': 'SearchAction',
-            'target': 'https://zhichixitong.support/search?q={search_term_string}',
-            'query-input': 'required name=search_term_string'
-        },
-        'description': '学习支持系统理论，构建个人成长网络，突破人生瓶颈，加速人生起飞',
-        'publisher': {
-            '@type': 'Organization',
-            'name': '支持系统团队',
-            'logo': {
-                '@type': 'ImageObject',
-                'url': 'https://zhichixitong.support/logo.png'
-            }
-        },
-        'mainEntity': {
-            '@type': 'Book',
-            'name': '支持系统理论',
-            'author': {
-                '@type': 'Person',
-                'name': '支持系统团队'
+        '@graph': [
+            {
+                '@type': 'WebSite',
+                '@id': 'https://zhichixitong.support/#website',
+                name: '支持系统',
+                url: 'https://zhichixitong.support',
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: 'https://zhichixitong.support/search?q={search_term_string}',
+                    'query-input': 'required name=search_term_string'
+                }
             },
-            'numberOfPages': totalChapters,
-            'offers': {
-                '@type': 'Offer',
-                'price': '19.99',
-                'priceCurrency': 'USD',
-                'availability': 'https://schema.org/InStock'
+            {
+                '@type': 'Organization',
+                '@id': 'https://zhichixitong.support/#organization',
+                name: '支持系统',
+                url: 'https://zhichixitong.support',
+                logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://zhichixitong.support/icon.png'
+                }
+            },
+            {
+                '@type': 'Book',
+                '@id': 'https://zhichixitong.support/#book',
+                name: '支持系统理论',
+                author: {
+                    '@type': 'Person',
+                    name: '刘明'
+                },
+                inLanguage: 'zh-CN',
+                numberOfPages: totalChapters,
+                offers: {
+                    '@type': 'Offer',
+                    price: '0',
+                    priceCurrency: 'USD',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://zhichixitong.support/download'
+                }
             }
-        }
+        ]
     };
 
     return (
         <>
-            <Script id="schema-data" type="application/ld+json">
+            <Script id="schema-data-home" type="application/ld+json">
                 {JSON.stringify(jsonLd)}
             </Script>
             <div className="page-container">
-                {/* 英雄区域 */}
                 <section className="hero-section">
                     <div className="container">
                         <div className="hero-svg-background">
@@ -97,20 +74,12 @@ export default function Home() {
                                 <path fill="rgba(255,255,255,0.08)" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,80C960,85,1056,139,1152,144C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                             </svg>
                         </div>
-                        <div className="hero-constellation">
-                            {isClient && starPositions.map((style, i) => (
-                                <div key={i} className="star" style={style}></div>
-                            ))}
-                            {isClient && linePositions.map((style, i) => (
-                                <div key={i + 'line'} className="connection-line" style={style}></div>
-                            ))}
-                        </div>
                         <div className="hero-container">
                             <h1 className="hero-title">用好支持系统，加速人生起飞</h1>
                             <p className="hero-subtitle">探索支持系统理论，构建个人成长网络，突破人生瓶颈</p>
                             <div className="hero-buttons">
                                 <Link href="/chapters" className="primary-button">开始阅读</Link>
-                                <Link href="/download" className="secondary-button">下载电子版</Link>
+                                <Link href="/download" className="secondary-button">免费下载电子版</Link>
                                 <Link href="/shop" className="secondary-button">购买纸质版</Link>
                             </div>
                         </div>
@@ -122,7 +91,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* 简介区域 */}
                 <section className="intro-section">
                     <div className="container">
                         <h2 className="section-title">什么是支持系统?</h2>
@@ -152,16 +120,13 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* 每日推荐 */}
                 <section className="recommended-section">
                     <div className="container">
                         <div className="section-header">
                             <h2 className="heading-lg">今日推荐</h2>
-                            {isClient && (
-                                <Link href="/chapters" className="view-all-link">
-                                    查看全部 {totalChapters} 篇文章 →
-                                </Link>
-                            )}
+                            <Link href="/chapters" className="view-all-link">
+                                查看全部 {totalChapters} 篇文章 →
+                            </Link>
                         </div>
 
                         <div className="chapters-grid">
@@ -179,7 +144,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* 打赏区域 */}
                 <section className="donation-section">
                     <div className="container">
                         <div className="donation-container">
@@ -194,11 +158,11 @@ export default function Home() {
                             <div className="wallet-addresses">
                                 <div className="wallet-card">
                                     <div className="wallet-qr">
-                                        <Image src="/images/evm-qr.jpg" alt="evm QR Code" width={150} height={150} />
+                                        <Image src="/images/evm-qr.jpg" alt="EVM 打赏二维码" width={150} height={150} />
                                     </div>
                                     <div className="wallet-info">
                                         <p className="wallet-note">
-                                            EVM 地址，支持ETH、USDT和其他ERC-20代币
+                                            EVM 地址，支持 ETH、USDT 和其他 ERC-20 代币
                                         </p>
                                     </div>
                                 </div>
@@ -207,13 +171,13 @@ export default function Home() {
                                     <div className="wallet-qr">
                                         <div className="qr-placeholder">
                                             <div className="qr-image">
-                                                <Image src="/images/sol-qr.JPG" alt="SOL QR Code" width={150} height={150} />
+                                                <Image src="/images/sol-qr.JPG" alt="SOL 打赏二维码" width={150} height={150} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="wallet-info">
                                         <p className="wallet-note">
-                                            SOL 地址，支持SOL和其他SPL代币
+                                            SOL 地址，支持 SOL 和其他 SPL 代币
                                         </p>
                                     </div>
                                 </div>
@@ -224,4 +188,4 @@ export default function Home() {
             </div>
         </>
     );
-} 
+}

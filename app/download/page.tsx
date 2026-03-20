@@ -5,19 +5,19 @@ import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: '下载电子版 - 支持系统',
-    description: '免费下载支持系统理论的电子版，包括PDF打印版、EPUB微信读书版等多种格式，随时随地学习成长，获取200篇完整文章。',
+    description: '免费下载支持系统理论电子版，提供 PDF 标准版、EPUB 阅读版与 PDF 打印优化版，收录 200+ 篇完整文章。',
     keywords: '支持系统电子书, PDF下载, EPUB电子书, 免费电子书, 个人成长, 微信读书导入, 支持系统理论',
     alternates: {
         canonical: 'https://zhichixitong.support/download',
     },
     openGraph: {
         title: '免费下载支持系统理论电子书 - PDF与EPUB格式',
-        description: '获取支持系统理论完整电子书，提供多种格式选择，包含200篇系统性文章，帮助你构建个人成长网络。',
+        description: '获取支持系统理论完整电子书，提供多种格式选择，包含 200+ 篇系统性文章。',
         url: 'https://zhichixitong.support/download',
         type: 'website',
         images: [
             {
-                url: '/images/ebook-cover.jpg',
+                url: 'https://zhichixitong.support/images/twitter-card.png',
                 width: 1200,
                 height: 630,
                 alt: '支持系统理论电子书封面',
@@ -33,7 +33,7 @@ const downloadOptions = [
         description: '适合在电脑或平板上阅读的PDF格式',
         icon: <BookOpenIcon className="download-icon" />,
         features: [
-            '完整收录200篇文章',
+            '完整收录 200+ 篇文章',
             'A4尺寸，清晰排版',
             '可在任何设备上阅读',
             '适合打印成纸质版',
@@ -47,7 +47,7 @@ const downloadOptions = [
         description: '适合导入微信读书、Kindle等阅读器',
         icon: <DevicePhoneMobileIcon className="download-icon" />,
         features: [
-            '完整收录200篇文章',
+            '完整收录 200+ 篇文章',
             '适合手机和阅读器',
             '可直接导入微信读书',
             '支持字体大小调整',
@@ -61,7 +61,7 @@ const downloadOptions = [
         description: '专为打印设计的优化版本',
         icon: <ArrowDownTrayIcon className="download-icon" />,
         features: [
-            '完整收录200篇文章',
+            '完整收录 200+ 篇文章',
             '双面打印优化布局',
             '减少墨水使用量',
             '包含打印指南',
@@ -84,7 +84,7 @@ export default function DownloadPage() {
             'name': '支持系统团队',
             'logo': {
                 '@type': 'ImageObject',
-                'url': 'https://zhichixitong.support/logo.png'
+                'url': 'https://zhichixitong.support/icon.png'
             }
         },
         'offers': downloadOptions.map(option => ({
@@ -94,7 +94,7 @@ export default function DownloadPage() {
             'price': '0',
             'priceCurrency': 'USD',
             'availability': 'https://schema.org/InStock',
-            'url': `https://zhichixitong.support/downloads/${option.fileName}`
+            'url': `https://zhichixitong.support/download/${option.fileName}`
         }))
     };
 
@@ -149,7 +149,7 @@ export default function DownloadPage() {
                                             </ul>
 
                                             <a
-                                                href={`/downloads/${option.fileName}`}
+                                                href={`/download/${option.fileName}`}
                                                 download
                                                 className="download-button"
                                             >
@@ -170,8 +170,8 @@ export default function DownloadPage() {
                                     <ol className="usage-steps">
                                         <li>下载EPUB文件到您的设备</li>
                                         <li>打开微信读书应用</li>
-                                        <li>点击"书架"底部的"+"按钮</li>
-                                        <li>选择"导入本地图书"</li>
+                                        <li>点击“书架”底部的“+”按钮</li>
+                                        <li>选择“导入本地图书”</li>
                                         <li>找到并选择下载的EPUB文件</li>
                                     </ol>
                                 </div>

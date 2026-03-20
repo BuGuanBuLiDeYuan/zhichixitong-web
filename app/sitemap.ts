@@ -5,7 +5,7 @@ type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'y
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://zhichixitong.support'
-    const currentDate = new Date()
+    const currentDate = new Date('2026-03-20')
 
     // 主要页面 - 按重要性和更新频率排序
     const mainPages = [
@@ -23,19 +23,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
         {
             url: `${baseUrl}/about`,
-            lastModified: new Date('2024-12-01'),
+            lastModified: new Date('2026-03-20'),
             changeFrequency: 'monthly' as ChangeFrequency,
             priority: 0.8,
         },
         {
             url: `${baseUrl}/download`,
-            lastModified: new Date('2024-12-15'),
+            lastModified: new Date('2026-03-20'),
             changeFrequency: 'weekly' as ChangeFrequency,
             priority: 0.8,
         },
         {
             url: `${baseUrl}/shop`,
-            lastModified: new Date('2024-12-10'),
+            lastModified: new Date('2026-03-20'),
             changeFrequency: 'weekly' as ChangeFrequency,
             priority: 0.8,
         },
@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/search`,
             lastModified: currentDate,
             changeFrequency: 'monthly' as ChangeFrequency,
-            priority: 0.6,
+            priority: 0.4,
         },
     ]
 
@@ -63,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         return {
             url: `${baseUrl}/chapter/${chapter.id}`,
-            lastModified: chapter.lastModified ? new Date(chapter.lastModified) : new Date('2024-01-01'),
+            lastModified: new Date('2026-03-20'),
             changeFrequency: 'monthly' as ChangeFrequency,
             priority: isCoreChapter ? 0.8 : 0.6,
         }

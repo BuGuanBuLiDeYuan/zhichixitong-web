@@ -21,7 +21,7 @@ export function getWebsiteStructuredData() {
             "url": "https://zhichixitong.support",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://zhichixitong.support/images/logo.png",
+                "url": "https://zhichixitong.support/icon.png",
                 "width": 512,
                 "height": 512
             }
@@ -59,7 +59,7 @@ export function getArticleStructuredData(chapter: Chapter) {
             "name": "支持系统",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://zhichixitong.support/images/logo.png",
+                "url": "https://zhichixitong.support/icon.png",
                 "width": 512,
                 "height": 512
             }
@@ -166,7 +166,7 @@ export function getOrganizationStructuredData() {
         "@type": "Organization",
         "name": "支持系统",
         "url": "https://zhichixitong.support",
-        "logo": "https://zhichixitong.support/images/logo.png",
+        "logo": "https://zhichixitong.support/icon.png",
         "description": "专注于支持系统理论研究与实践的教育平台",
         "foundingDate": "2024",
         "founder": {
